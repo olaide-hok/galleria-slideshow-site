@@ -21,7 +21,7 @@ async function DetailsPage({params}) {
     } = details;
 
     return (
-        <div className="details-wrapper">
+        <div className="details-wrapper flex">
             {/* Main Gallery */}
             <div className="gallery-wrapper">
                 {/* hero large */}
@@ -63,18 +63,27 @@ async function DetailsPage({params}) {
                     </div>
                 </div>
             </div>
-            {/* Description, year, and source */}
 
-            <div className="details-wrapper">
-                <p className="year">{year}</p>
-                <p className="description">{description}</p>
-                <a
-                    className="source"
-                    href={source}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <span className="uppercase">go to source</span>
-                </a>
+            {/* Description, year, and source */}
+            <div className="details-copy grid">
+                <p className="year text-grey-100 text-preset-1 fw-700">
+                    {year}
+                </p>
+
+                <div className="desc-source-wrapper flex">
+                    <p className="description fs-14 text-grey-400 fw-700 ls-2 lh-200">
+                        {description}
+                    </p>
+                    <a
+                        className="source"
+                        href={source}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <span className="text-grey-400 fs-9 fw-700 ls-3 lh-125 uppercase">
+                            go to source
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
     );
