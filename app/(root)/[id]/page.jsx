@@ -7,6 +7,11 @@ const getGalleryDetails = (id) => {
 async function DetailsPage({params}) {
     const {id} = await params;
     const details = getGalleryDetails(id);
+
+    if (!details) {
+        return <h1>Gallery details not found!</h1>;
+    }
+
     const {
         name: artName,
         year,
