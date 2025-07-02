@@ -208,12 +208,20 @@ body {
     font-size: var(--fs-10);
 }
 
+.fs-13 {
+    font-size: var(--fs-13);
+}
+
 .fs-14 {
     font-size: var(--fs-14);
 }
 
 .fs-15 {
     font-size: var(--fs-15);
+}
+
+.fs-24 {
+    font-size: var(--fs-24);
 }
 
 .fw-700 {
@@ -338,6 +346,43 @@ body {
     justify-content: space-between;
     padding-inline: var(--space-200);
     padding-block: var(--space-300);
+}
+
+/* Home page */
+.multicol {
+    display: flex;
+    margin-inline: var(--space-300);
+    margin-top: var(--space-300);
+    margin-bottom: 3.4375rem;
+    width: auto;
+}
+
+.gallery-column {
+    background-clip: padding-box;
+}
+
+/* Image Card */
+.image-card {
+    display: block;
+    position: relative;
+    justify-self: center;
+    margin-bottom: var(--space-500);
+    text-decoration: none;
+}
+
+.image-card .art-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    justify-content: left;
+    align-items: flex-start;
+    flex-direction: column;
+    row-gap: var(--space-100);
+    padding: var(--space-400);
+}
+
+.image-card .art-info-overlay p:last-child {
+    opacity: 0.7528;
 }
 
 /* Details Page */
@@ -472,6 +517,17 @@ body {
 /* Tablet */
 
 @media (min-width: 35em) {
+    /* Home page */
+    .multicol {
+        margin-inline: 2.625rem;
+        margin-top: 2.625rem;
+        margin-bottom: var(--space-500);
+    }
+
+    .gallery-column:not(:first-child) {
+        margin-left: var(--space-500);
+    }
+
     .details-wrapper {
         flex-direction: column !important;
         margin-top: var(--space-500);
@@ -549,6 +605,18 @@ body {
     .header {
         margin-inline: 2em;
         padding-block: var(--space-500);
+    }
+
+    /* Home page */
+    .multicol {
+        margin-inline: var(--space-500);
+        margin-top: var(--space-500);
+        margin-bottom: var(--space-600);
+    }
+
+    .my-masonry-grid_column {
+        padding-left: 30px; /* gutter size */
+        background-clip: padding-box;
     }
 
     .details-wrapper {
