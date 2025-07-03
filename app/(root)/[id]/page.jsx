@@ -1,15 +1,16 @@
 import data from '@/lib/data.json';
 import SlideshowController from './SlideshowController';
 
-const getGalleryDetails = (id) => {
-    return data.find((item) => item.id === id);
-};
-
 async function DetailsPage({params}) {
     const {id} = await params;
-    const details = getGalleryDetails(id);
 
-    if (!details) {
+    const index = data.findIndex((art) => art.id === id);
+
+    const artwork = data[index];
+    const nextId = data[(index + 1) % data.length].id;
+    const prevId = data[(index - 1 + data.length) % data.length].id;
+
+    if (!artwork) {
         return <h1>Gallery details not found!</h1>;
     }
 
@@ -24,7 +25,7 @@ async function DetailsPage({params}) {
             hero: {small, large},
             gallery,
         },
-    } = details;
+    } = artwork;
 
     return (
         <div className="details-container">
@@ -94,7 +95,14 @@ async function DetailsPage({params}) {
                 </div>
             </div>
             {/* Slideshow Controller */}
-            <SlideshowController artName={artName} artistName={artistName} />
+            <SlideshowController
+                artName={artName}
+                artistName={artistName}
+                totalArtworks={data.length}
+                index={index}
+                nextId={nextId}
+                prevId={prevId}
+            />
         </div>
     );
 }
