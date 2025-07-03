@@ -312,14 +312,13 @@ body {
 }
 
 .slide-show-btn {
-    border: 0;
-    background: none;
     color: hsl(var(--clr-grey-400));
     cursor: pointer;
     font-weight: 700;
     font-size: var(--fs-9);
     letter-spacing: 0.125rem;
     line-height: var(--lh-125);
+    text-decoration: none;
 }
 
 .slide-show-btn:hover {
@@ -480,7 +479,28 @@ body {
 }
 
 .slideshow-progress-indicator {
-    border: 1px solid hsl(var(--clr-grey-150));
+    display: flex;
+    justify-content: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 1px;
+    appearance: none;
+}
+
+/* WebKit (Safari, Chrome) */
+.progress-bar::-webkit-progress-bar {
+    background-color: hsl(var(--clr-grey-150));
+}
+
+.progress-bar::-webkit-progress-value {
+    background-color: hsl(var(--clr-black));
+}
+
+/* Firefox */
+.progress-bar::-moz-progress-bar {
+    background-color: #333;
 }
 
 .slideshow-controller-wrapper .slide-info {
@@ -506,7 +526,20 @@ body {
     cursor: pointer;
 }
 
-.slideshow-controller-wrapper .slide-info .slideshow-btns > button:hover svg g {
+.slideshow-controller-wrapper
+    .slide-info
+    .slideshow-btns
+    > button.disabled
+    svg
+    g {
+    stroke: hsl(var(--clr-grey-200));
+}
+
+.slideshow-controller-wrapper .slide-info .slideshow-btns > button.disabled {
+    cursor: not-allowed;
+}
+
+.slideshow-controller-wrapper .slide-info .slideshow-btns > a:hover svg g {
     stroke: hsl(var(--clr-grey-200));
 }
 
@@ -636,6 +669,7 @@ body {
     .artist-details .artist-info {
         justify-self: center;
         margin-left: var(--space-800);
+        margin-top: -0.0625rem;
     }
 
     .artist-details .artist-img {
