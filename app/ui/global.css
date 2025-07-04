@@ -594,7 +594,9 @@ body {
     }
 
     .header {
-        padding-inline: var(--space-400);
+        padding-block: var(--space-300) !important;
+        padding-inline: var(--space-400) !important;
+        margin-inline: 0 !important;
     }
 
     .details-wrapper {
@@ -673,6 +675,7 @@ body {
     .header {
         margin-inline: var(--space-500);
         padding-block: var(--space-500);
+        padding-inline: 0;
     }
 
     /* Home page */
