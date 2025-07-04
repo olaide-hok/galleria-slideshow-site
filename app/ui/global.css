@@ -426,6 +426,38 @@ body {
     background-color: hsl(var(--clr-white) / 0.2522);
 }
 
+/* Lightbox */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    flex-direction: column;
+    row-gap: var(--space-300);
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+}
+
+.lightbox-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
 .artist-details-wrapper {
     position: absolute;
     bottom: -27%;
@@ -570,6 +602,10 @@ body {
         top: unset;
         bottom: var(--space-200);
         left: var(--space-200);
+    }
+
+    .lightbox-content {
+        row-gap: var(--space-400);
     }
 
     .hero-wrapper .hero-img {
