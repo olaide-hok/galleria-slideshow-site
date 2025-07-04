@@ -584,13 +584,17 @@ body {
 @media (min-width: 35em) {
     /* Home page */
     .multicol {
-        margin-inline: 2.625rem;
+        margin-inline: 2.75rem;
         margin-top: 2.625rem;
         margin-bottom: var(--space-500);
     }
 
     .gallery-column:not(:first-child) {
         margin-left: var(--space-500);
+    }
+
+    .header {
+        padding-inline: var(--space-400);
     }
 
     .details-wrapper {
