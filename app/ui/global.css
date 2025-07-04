@@ -621,17 +621,12 @@ body {
     }
 
     .artist-details {
-        float: end;
         width: 100%;
     }
 
     .artist-details .artist-info {
         padding: 0 0 var(--space-800) var(--space-800);
         gap: var(--space-300);
-    }
-
-    .artist-details .artist-info .art-name {
-        width: min-content;
     }
 
     .artist-details .artist-img {
@@ -672,7 +667,7 @@ body {
 /* Desktop */
 @media (min-width: 45em) {
     .header {
-        margin-inline: 2em;
+        margin-inline: var(--space-500);
         padding-block: var(--space-500);
     }
 
@@ -692,6 +687,7 @@ body {
         flex-direction: row !important;
         column-gap: 2.25rem;
         margin-top: var(--space-1200);
+        margin-inline: var(--space-500);
     }
 
     .gallery-wrapper {
@@ -703,8 +699,8 @@ body {
     }
 
     .artist-details .artist-info {
-        justify-self: center;
-        margin-left: var(--space-800);
+        justify-self: flex-end;
+        margin-left: 9rem;
         margin-top: -0.0625rem;
     }
 
