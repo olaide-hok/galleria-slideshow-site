@@ -1,8 +1,15 @@
-import data from '@/lib/data.json';
-import SlideshowController from './SlideshowController';
+'use client';
 
-async function DetailsPage({params}) {
-    const {id} = await params;
+import {useState} from 'react';
+import data from '@/lib/data.json';
+import SlideshowController from '@/components/SlideshowController';
+import Lightbox from '@/components/Lightbox';
+import {useParams} from 'next/navigation';
+
+function DetailsPage() {
+    const {id} = useParams();
+
+    const [showLightbox, setShowLightbox] = useState(false);
 
     const index = data.findIndex((art) => art.id === id);
 
@@ -21,8 +28,7 @@ async function DetailsPage({params}) {
         source,
         artist: {image: artistImage, name: artistName},
         images: {
-            thumbnail,
-            hero: {small, large},
+            hero: {large},
             gallery,
         },
     } = artwork;
@@ -35,6 +41,7 @@ async function DetailsPage({params}) {
                     {/* hero large */}
                     <div className="hero-wrapper">
                         <button
+                            onClick={() => setShowLightbox(true)}
                             className="view-image-btn flex uppercase"
                             type="button">
                             <img
@@ -48,11 +55,7 @@ async function DetailsPage({params}) {
                         <img className="hero-img" src={large} alt={artName} />
                     </div>
 
-                    {/* hero small */}
-                    {/* <img src="" alt="" /> */}
-
                     {/* Artist Details */}
-
                     <div className="artist-details-wrapper">
                         <div className="artist-details">
                             <div className="artist-info flex">
@@ -103,6 +106,14 @@ async function DetailsPage({params}) {
                 nextId={nextId}
                 prevId={prevId}
             />
+
+            {showLightbox && (
+                <Lightbox
+                    src={gallery}
+                    alt={`${artName} - full view`}
+                    onClose={() => setShowLightbox(false)}
+                />
+            )}
         </div>
     );
 }
