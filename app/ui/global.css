@@ -674,8 +674,7 @@ body {
 @media (min-width: 48em) {
     .header {
         margin-inline: var(--space-500);
-        padding-block: var(--space-500);
-        padding-inline: 0;
+        padding: var(--space-500) 0;
     }
 
     /* Home page */
