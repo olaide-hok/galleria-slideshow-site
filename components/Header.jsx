@@ -7,6 +7,7 @@ const Header = () => {
 
     return (
         <header className="header flex">
+            <h1 className="sr-only">Gallery</h1>
             <Link href="/">
                 <img
                     className="logo"
